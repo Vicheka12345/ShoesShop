@@ -1,0 +1,13 @@
+.footer {
+  background: grey;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 2rem 4rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.gold {
+  color: var(--gold);
+}

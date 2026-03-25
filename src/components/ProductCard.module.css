@@ -1,0 +1,122 @@
+.card {
+  background: var(--white);
+  border: 1px solid var(--warm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.imgWrap {
+  height: 240px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.card:hover .imgWrap {
+  background: var(--warm);
+}
+
+.emoji {
+  font-size: 6rem;
+  transition: transform 0.3s;
+}
+
+.card:hover .emoji {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .productImage {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+}
+
+.info {
+  padding: 1.5rem;
+}
+
+.category {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.oldPrice {
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+}
+
+.addBtn {
+  background: var(--black);
+  color: var(--cream);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.addBtn:hover {
+  background: var(--gold);
+}

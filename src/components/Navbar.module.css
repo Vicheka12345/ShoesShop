@@ -1,0 +1,140 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 4rem;
+  background: rgba(245, 240, 232, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  transition: box-shadow 0.3s;
+  height: 80px;
+}
+
+.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--black);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoImg {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.links li a {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.links li a:hover {
+  color: var(--black);
+}
+
+.links li a.active {
+  color: var(--black);
+}
+
+.links li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+
+.cartBtn {
+  background: slateblue;
+  color: var(--cream);
+  padding: 0.6rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border: none;
+  transition: background 0.3s;
+  border-radius: 10px;
+}
+
+.cartBtn:hover {
+  background: var(--gold);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .links {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .links.open {
+    display: flex;
+  }
+
+  .links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .links li a {
+    display: block;
+    padding: 1rem;
+  }
+}

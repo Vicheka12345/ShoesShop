@@ -1,0 +1,250 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+  background: var(--cream);
+  border-radius: 20px;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.heroDesc {
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.heroBtns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f0e8;
+}
+
+.shoeDisplay {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoeImage {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  transform: rotate(-15deg);
+  filter: drop-shadow(0 20px 60px rgba(201, 168, 76, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotate(-15deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-15deg) translateY(-20px);
+  }
+}
+
+.heroBadge {
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-align: center;
+  line-height: 1.3;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.7rem;
+  padding: 20px;
+  background: transparent;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 290px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.statText {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: goldenrod;
+  text-align: center;
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.seeAll {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: slateblue;
+  background: rgba(106, 90, 205, 0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.seeAll:hover {
+  background: slateblue;
+  color: white;
+  gap: 0.7rem;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* BANNER */
+.banner {
+  background:#3c402f;
+  padding: 6rem 4rem;
+  text-align: center;
+}
+
+.bannerInner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bannerTitle {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  color: var(--cream);
+  margin: 0.5rem 0 1rem;
+}
+
+.bannerDesc {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.bannerBtn {
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem 2.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 10px;
+  text-transform: uppercase;
+  border: none;
+  transition: opacity 0.3s;
+}
+
+.bannerBtn:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroRight {
+    height: 50vh;
+    width: 90%;
+    margin: auto;
+  }
+
+  .stats {
+    display: none;
+  }
+
+  .heroBadge {
+    display: none;
+  }
+}
