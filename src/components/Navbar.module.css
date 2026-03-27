@@ -7,16 +7,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 4rem;
-  background: rgba(245, 240, 232, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-  transition: box-shadow 0.3s;
-  height: 80px;
+  padding: 1.5rem 6%;
+  background: rgba(245, 240, 232, 0);
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scrolled {
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem 6%;
+  background: rgba(245, 240, 232, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.scrolled .logoImg {
+  transform: scale(0.9);
 }
 
 .logo {
@@ -36,6 +43,7 @@
   height: 2.5rem;
   width: auto;
   object-fit: contain;
+  transition: transform 0.4s ease;
 }
 
 .logo span {
@@ -113,7 +121,7 @@
   .links {
     display: none;
     position: absolute;
-    top: 80px;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--cream);

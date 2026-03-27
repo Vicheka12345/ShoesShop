@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Scroll from './components/Scroll'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -23,6 +24,7 @@ export default function App() {
 
   return (
     <>
+      <Scroll />
       <Navbar cartCount={cart.length} />
 
       <Routes>
