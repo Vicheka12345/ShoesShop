@@ -6,14 +6,17 @@
 }
 
 :root {
-  --cream: #f5f0e8;
-  --black: #0d0d0d;
-  --gold: #c9a84c;
-  --warm: #e8dcc8;
-  --gray: #6b6b6b;
-  --light: #faf8f4;
-  --accent: #8b2635;
+  --cream: #f6efe3;
+  --black: #15120e;
+  --gold: #c99b36;
+  --gold-dark: #a8741e;
+  --warm: #e9dcc8;
+  --gray: #6f6a61;
+  --light: #fbf7ef;
+  --accent: #8e3b2f;
+  --ink-soft: #29231c;
   --white: #ffffff;
+  --shadow: 0 22px 60px rgba(36, 26, 14, 0.12);
 }
 
 html {
@@ -22,7 +25,9 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: var(--light);
+  background:
+    radial-gradient(circle at top left, rgba(201, 155, 54, 0.14), transparent 32rem),
+    linear-gradient(180deg, #fffaf1 0%, var(--light) 44%, #f2eadc 100%);
   color: var(--black);
   overflow-x: hidden;
 }
@@ -43,7 +48,7 @@ a {
 
 /* ===== UTILITY ===== */
 .section {
-  padding: 6rem 4rem;
+  padding: 6.5rem 6%;
 }
 
 .section-tag {
@@ -51,7 +56,7 @@ a {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -59,41 +64,47 @@ a {
 .section-title {
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .btn-primary {
-  background: darkblue;
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--black), #423324);
+  color: var(--white);
   padding: 1rem 2.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: none;
-  border-radius: 10px;
-  transition: background 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(21, 18, 14, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .btn-primary:hover {
-  background: var(--gold);
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(201, 155, 54, 0.26);
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.5);
   color: var(--black);
   padding: 1rem 2.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 2px solid var(--black);
-  border-radius: 10px;
-  transition: all 0.3s;
+  border: 1px solid rgba(21, 18, 14, 0.22);
+  border-radius: 8px;
+  transition: all 0.25s ease;
 }
 
 .btn-outline:hover {
-  background: gray;
-  color: var(--cream);
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 /* ===== PAGE WRAPPER ===== */
@@ -108,9 +119,11 @@ a {
   bottom: 2rem;
   right: 2rem;
   background: var(--black);
-  color: var(--cream);
+  color: var(--white);
   padding: 1rem 1.8rem;
   font-size: 0.88rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
   z-index: 9999;
   transform: translateY(100px);
   opacity: 0;

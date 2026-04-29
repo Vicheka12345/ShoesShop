@@ -14,35 +14,34 @@ export default function Home({ onAdd }) {
 
   return (
     <div className="page">
-      {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroLeft}>
+          <span className={styles.heroKicker}>Premium Footwear Studio</span>
           <h1 className={styles.heroTitle}>
             Step Into <em>Pure</em> Luxury
           </h1>
           <p className={styles.heroDesc}>
-            Discover footwear that transcends trends. Each pair is a statement —
+            Discover footwear that transcends trends. Each pair is a statement -
             crafted with precision, worn with purpose.
           </p>
           <div className={styles.heroBtns}>
-            <button
-              className="btn-primary"
-              onClick={() => navigate("/products")}
-            >
+            <button className="btn-primary" onClick={() => navigate("/products")}>
               Shop Now
             </button>
             <button className="btn-outline" onClick={() => navigate("/about")}>
               Our Story
             </button>
           </div>
+          <div className={styles.heroStats}>
+            <span>120+ Styles</span>
+            <span>Premium Leather</span>
+            <span>Fast Delivery</span>
+          </div>
         </div>
+
         <div className={styles.heroRight}>
           <div className={styles.shoeDisplay}>
-            <img
-              src={top}
-              alt="New Collection Shoes"
-              className={styles.shoeImage}
-            />
+            <img src={top} alt="New Collection Shoes" className={styles.shoeImage} />
             <div className={styles.heroBadge}>
               New
               <br />
@@ -52,18 +51,17 @@ export default function Home({ onAdd }) {
         </div>
       </section>
 
-
-      {/* FEATURED */}
       <section className="section">
         <div className={styles.sectionHeader}>
           <div>
-            <span className="section-tag">✦ Editor's Pick</span>
+            <span className="section-tag">Editor's Pick</span>
             <h2 className="section-title">Featured Collection</h2>
           </div>
           <span className={styles.seeAll} onClick={() => navigate("/products")}>
-            View All →
+            View All
           </span>
         </div>
+
         <div className={styles.grid}>
           {products.slice(0, 4).map((p, index) => {
             const productImages = [shoes1, shoes2, shoes3, shoes4];
@@ -78,18 +76,14 @@ export default function Home({ onAdd }) {
         </div>
       </section>
 
-      {/* BANNER */}
       <section className={styles.banner}>
         <div className={styles.bannerInner}>
-          <span className="section-tag">✦ Limited Time</span>
+          <span className="section-tag">Limited Time</span>
           <h2 className={styles.bannerTitle}>Up to 40% Off Sale Items</h2>
           <p className={styles.bannerDesc}>
             New markdowns added every week. Don't miss your size.
           </p>
-          <button
-            className={styles.bannerBtn}
-            onClick={() => navigate("/products")}
-          >
+          <button className={styles.bannerBtn} onClick={() => navigate("/products")}>
             Shop the Sale
           </button>
         </div>

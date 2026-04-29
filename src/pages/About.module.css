@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
-  padding: 6rem 4rem;
+  padding: 6rem 6%;
   align-items: center;
 }
 
@@ -14,6 +14,8 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
 .aboutImg {
@@ -58,8 +60,8 @@
 
 /* VALUES */
 .valuesSection {
-  padding: 5rem 4rem;
-  background: var(--cream);
+  padding: 5rem 6%;
+  background: rgba(246, 239, 227, 0.72);
 }
 
 .valuesHeader {
@@ -74,8 +76,10 @@
 
 .valueCard {
   padding: 2rem;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(21, 18, 14, 0.08);
   border-left: 4px solid var(--gold);
+  border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -104,7 +108,7 @@
 
 /* TEAM */
 .teamSection {
-  padding: 5rem 4rem;
+  padding: 5rem 6%;
 }
 
 .teamGrid {
@@ -117,10 +121,11 @@
 .personCard {
   text-align: center;
   padding: 3rem 2rem;
-  border: 1px solid var(--warm);
+  border: 1px solid rgba(21, 18, 14, 0.08);
   transition: border-color 0.3s, transform 0.3s;
-  background: var(--white);
-    border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(36, 26, 14, 0.07);
 }
 
 .personCard:hover {

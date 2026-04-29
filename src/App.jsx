@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useParams } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Scroll from './components/Scroll'
 import Footer from './components/Footer'
@@ -10,6 +10,16 @@ import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import Contact from './pages/Contact'
 
+function ProductRoute({ onAdd }) {
+  const { slug } = useParams()
+
+  if (/^\d+$/.test(slug)) {
+    return <ProductDetail onAdd={onAdd} />
+  }
+
+  return <Products onAdd={onAdd} categorySlug={slug} />
+}
+
 export default function App() {
   const [cart, setCart] = useState([])
   const [toast, setToast] = useState('')
@@ -17,7 +27,7 @@ export default function App() {
 
   function addToCart(product) {
     setCart(prev => [...prev, product])
-    setToast(`✓ ${product.name} added to cart!`)
+    setToast(`${product.name} added to cart`)
     if (toastTimeout.current) clearTimeout(toastTimeout.current)
     toastTimeout.current = setTimeout(() => setToast(''), 3000)
   }
@@ -32,7 +42,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
         <Route path="/products" element={<Products onAdd={addToCart} />} />
-        <Route path="/products/:id" element={<ProductDetail onAdd={addToCart} />} />
+        <Route path="/products/:slug" element={<ProductRoute onAdd={addToCart} />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
@@ -40,5 +50,5 @@ export default function App() {
 
       <div className={`toast ${toast ? 'show' : ''}`}>{toast}</div>
     </>
-   )
+  )
 }

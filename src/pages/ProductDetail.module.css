@@ -8,16 +8,17 @@
   font-weight: 600;
   letter-spacing: 0.03em;
   color: white;
-  background: darkblue;
+  background: var(--black);
   border-radius: 6px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 2rem 4rem;
   width: fit-content;
-  box-shadow: 0 4px 12px rgba(0, 0, 139, 0.2);
+  box-shadow: 0 10px 24px rgba(21, 18, 14, 0.16);
 }
 
 .back:hover {
-  background: #000095;
+  background: var(--gold);
+  color: var(--black);
   transform: translateX(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 139, 0.3);
 }
@@ -29,7 +30,9 @@
 }
 
 .imgSide {
-  background: var(--cream);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(201, 155, 54, 0.18), transparent 18rem),
+    var(--cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,6 +52,7 @@
   text-transform: uppercase;
   padding: 0.3rem 0.8rem;
   z-index: 10;
+  border-radius: 999px;
 }
 
 .mainImgWrap {
@@ -77,6 +81,7 @@
   cursor: pointer;
   transition: all 0.3s;
   padding: 5px;
+  border-radius: 8px;
 }
 
 .thumb img {
@@ -178,12 +183,13 @@
 .sizeBtn {
   width: 52px;
   height: 52px;
-  border: 1px solid var(--warm);
-  background: transparent;
+  border: 1px solid rgba(21, 18, 14, 0.12);
+  background: rgba(255, 255, 255, 0.68);
   font-family: "Roboto", sans-serif;
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s;
+  border-radius: 8px;
 }
 
 .sizeBtn:hover,
@@ -225,43 +231,22 @@
 
 .cartBtn {
   flex: 1;
-  background: #8b2635;
-  border-radius: 10px;
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--black), #493924);
+  border-radius: 8px;
+  color: var(--white);
   border: none;
   padding: 1.2rem;
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: background 0.3s;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .cartBtn:hover {
-  background: var(--gold);
-}
-
-.wishBtn {
-  width: 56px;
-  height: 56px;
-  border: 2px solid var(--black);
-  background: transparent;
-  font-size: 1.3rem;
-  display: flex;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-
-.wishBtn:hover {
-  background: darkcyan;
-  color: var(--cream);
-}
-.wished {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
+  background: linear-gradient(135deg, var(--gold), #e3c066);
+  color: var(--black);
+  transform: translateY(-2px);
 }
 
 .features {
@@ -286,7 +271,7 @@
 /* RELATED */
 .related {
   padding: 4rem;
-  background: var(--cream);
+  background: rgba(246, 239, 227, 0.78);
 }
 
 .relatedGrid {
@@ -297,8 +282,8 @@
 }
 
 .relatedCard {
-  background: var(--white);
-  border: 1px solid var(--warm);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(21, 18, 14, 0.08);
   padding: 1.5rem;
   text-align: center;
   cursor: pointer;
@@ -306,6 +291,7 @@
   margin-left: 20px;
   gap: 20px;
   padding: 10px;
+  border-radius: 8px;
   transition:
     transform 0.3s,
     box-shadow 0.3s;

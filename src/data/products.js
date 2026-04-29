@@ -6,8 +6,6 @@ import s5 from "../image/service_wrapping.png";
 import s6 from "../image/service_finance.png";
 
 import run from "../image/Runing.jpg";
-import Formal from "../image/Formal.jpg";
-
 import Causal from "../image/causal.jpg";
 import Causal1 from "../image/causal1.jpg";
 import Causal2 from "../image/causal2.jpg";
@@ -58,17 +56,6 @@ export const products = [
     colors: ["#0d0d0d", "#c9a84c", "#8b2635"],
     desc: "Engineered for elite performance...",
     tags: ["Running", "Men"],
-  },
-
-  {
-    id: 2,
-    name: "Heritage Leather Oxford",
-    category: "Formal",
-    price: 285,
-    image: Formal,
-    desc: "Handcrafted from full-grain leather...",
-    tags: ["Formal", "Men"],
-    ...defaultFields,
   },
 
   {
@@ -411,7 +398,6 @@ export const products = [
 export const categories = [
   "All",
   "Running",
-  "Formal",
   "Casual",
   "Outdoor",
   "Luxury",

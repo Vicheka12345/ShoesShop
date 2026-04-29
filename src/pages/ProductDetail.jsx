@@ -5,13 +5,12 @@ import { Stars } from "../components/ProductCard";
 import styles from "./ProductDetail.module.css";
 
 export default function ProductDetail({ onAdd }) {
-  const { id } = useParams();
+  const { id, slug } = useParams();
   const navigate = useNavigate();
-  const product = products.find((p) => p.id === Number(id));
+  const product = products.find((p) => p.id === Number(id || slug));
 
   const [selectedSize, setSelectedSize] = useState(42);
   const [selectedColor, setSelectedColor] = useState(0);
-  const [wished, setWished] = useState(false);
 
   if (!product) {
     return (
@@ -27,7 +26,7 @@ export default function ProductDetail({ onAdd }) {
       >
         <h2>Product not found</h2>
         <button className="btn-primary" onClick={() => navigate("/products")}>
-          Back to Products
+          View Products
         </button>
       </div>
     );
@@ -35,30 +34,20 @@ export default function ProductDetail({ onAdd }) {
 
   const sizes = [38, 39, 40, 41, 42, 43, 44, 45];
   const features = [
-    ["●", "Free delivery on this item"],
-    ["●", "90-day free returns"],
-    ["●", "Authenticity guaranteed"],
-    ["●", "Free sole repair for 1 year"],
+    "Free delivery on this item",
+    "90-day free returns",
+    "Authenticity guaranteed",
+    "Free sole repair for 1 year",
   ];
 
   return (
     <div className="page">
-      <div className={styles.back} onClick={() => navigate("/products")}>
-        ← Back to Products
-      </div>
-
       <div className={styles.layout}>
-        {/* LEFT — Image */}
         <div className={styles.imgSide}>
           {product.badge && <div className={styles.badge}>{product.badge}</div>}
-          <img
-            src={product.image}
-            alt={product.name}
-            className={styles.mainImg}
-          />
+          <img src={product.image} alt={product.name} className={styles.mainImg} />
         </div>
 
-        {/* RIGHT — Info */}
         <div className={styles.infoSide}>
           <div className={styles.category}>{product.category}</div>
           <h1 className={styles.name}>{product.name}</h1>
@@ -69,13 +58,10 @@ export default function ProductDetail({ onAdd }) {
           </div>
 
           <div className={styles.price}>${product.price}</div>
-          {product.oldPrice && (
-            <div className={styles.oldPrice}>Was ${product.oldPrice}</div>
-          )}
+          {product.oldPrice && <div className={styles.oldPrice}>Was ${product.oldPrice}</div>}
 
           <p className={styles.desc}>{product.desc}</p>
 
-          {/* SIZES */}
           <div className={styles.label}>Size (EU)</div>
           <div className={styles.sizeGrid}>
             {sizes.map((s) => (
@@ -89,7 +75,6 @@ export default function ProductDetail({ onAdd }) {
             ))}
           </div>
 
-          {/* COLORS */}
           <div className={styles.label}>Color</div>
           <div className={styles.colorGrid}>
             {product.colors.map((c, i) => (
@@ -102,24 +87,16 @@ export default function ProductDetail({ onAdd }) {
             ))}
           </div>
 
-          {/* ACTIONS */}
           <div className={styles.actions}>
             <button className={styles.cartBtn} onClick={() => onAdd(product)}>
               Add to Cart
             </button>
-            <button
-              className={`${styles.wishBtn} ${wished ? styles.wished : ""}`}
-              onClick={() => setWished(!wished)}
-            >
-              {wished ? "♥" : "♡"}
-            </button>
           </div>
 
-          {/* FEATURES */}
           <div className={styles.features}>
-            {features.map(([icon, text]) => (
+            {features.map((text) => (
               <div className={styles.featureRow} key={text}>
-                <span>{icon}</span>
+                <span>-</span>
                 <span>{text}</span>
               </div>
             ))}
@@ -127,14 +104,11 @@ export default function ProductDetail({ onAdd }) {
         </div>
       </div>
 
-      {/* RELATED */}
       <div className={styles.related}>
-        <span className="section-tag">✦ You May Also Like</span>
+        <span className="section-tag">You May Also Like</span>
         <div className={styles.relatedGrid}>
           {products
-            .filter(
-              (p) => p.id !== product.id && p.category === product.category,
-            )
+            .filter((p) => p.id !== product.id && p.category === product.category)
             .slice(0, 3)
             .concat(products.filter((p) => p.id !== product.id).slice(0, 3))
             .slice(0, 3)
