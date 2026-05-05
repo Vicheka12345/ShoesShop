@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import styles from './Navbar.module.css'
 import logo from '../image/logo2.png'
 
 function NavIcon({ name }) {
@@ -39,7 +38,7 @@ function NavIcon({ name }) {
   }
 
   return (
-    <svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="w-5 h-5 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {icons[name]}
     </svg>
   )
@@ -66,26 +65,26 @@ export default function Navbar({ cartCount }) {
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-        <div className={styles.logo} onClick={() => navigate('/')}>
-          <img src={logo} alt="Sole Store" className={styles.logoImg} />
+      <nav className={`fixed top-0 left-0 w-full z-[1000] flex items-center justify-between px-[6%] h-20 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-lg h-16' : 'bg-transparent'}`}>
+        <div className="cursor-pointer" onClick={() => navigate('/')}>
+          <img src={logo} alt="Sole Store" className="h-10 w-auto object-contain" />
         </div>
 
-        <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
-          <li className={styles.drawerHeader}>
-            <img src={logo} alt="Sole Store" className={styles.drawerLogo} />
-            <button type="button" className={styles.closeBtn} aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-              <span aria-hidden="true" />
-              <span aria-hidden="true" />
+        <ul className={`fixed inset-0 bg-white z-[1100] flex flex-col p-8 transition-transform duration-500 lg:static lg:bg-transparent lg:flex-row lg:items-center lg:gap-8 lg:p-0 lg:translate-x-0 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <li className="flex items-center justify-between mb-12 lg:hidden">
+            <img src={logo} alt="Sole Store" className="h-8" />
+            <button type="button" className="relative w-8 h-8 flex flex-col items-center justify-center gap-1.5" onClick={() => setMenuOpen(false)}>
+              <span className="w-6 h-0.5 bg-brand-black rotate-45 translate-y-2 transition-all" />
+              <span className="w-6 h-0.5 bg-brand-black -rotate-45 -translate-y-0.5 transition-all" />
             </button>
           </li>
 
           {links.map(({ to, label, icon }) => (
-            <li key={to} onClick={() => setMenuOpen(false)}>
+            <li key={to} onClick={() => setMenuOpen(false)} className="mb-6 lg:mb-0">
               <NavLink
                 to={to}
                 end={to === '/'}
-                className={({ isActive }) => (isActive ? styles.active : '')}
+                className={({ isActive }) => `group flex items-center gap-3 text-lg font-medium lg:text-sm lg:uppercase lg:tracking-wider transition-colors ${isActive ? 'text-gold' : 'text-brand-black hover:text-gold'}`}
               >
                 <NavIcon name={icon} />
                 <span>{label}</span>
@@ -94,23 +93,24 @@ export default function Navbar({ cartCount }) {
           ))}
         </ul>
 
-        <button className={styles.cartBtn} onClick={() => navigate('/products')}>
-          Cart ({cartCount})
-        </button>
+        <div className="flex items-center gap-4">
+          <button className="bg-brand-black text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-gold hover:text-brand-black transition-colors" onClick={() => navigate('/products')}>
+            Cart ({cartCount})
+          </button>
 
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </button>
+          <button
+            className="flex flex-col gap-1.5 lg:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`w-6 h-0.5 bg-brand-black transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 bg-brand-black transition-all ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-0.5 bg-brand-black transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          </button>
+        </div>
       </nav>
 
-      {menuOpen && <button className={styles.backdrop} aria-label="Close menu" onClick={() => setMenuOpen(false)} />}
+      {menuOpen && <div className="fixed inset-0 bg-black/50 z-[1050] backdrop-blur-sm lg:hidden" onClick={() => setMenuOpen(false)} />}
     </>
   )
 }

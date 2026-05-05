@@ -48,7 +48,9 @@ export default function App() {
 
       <Footer />
 
-      <div className={`toast ${toast ? 'show' : ''}`}>{toast}</div>
+      <div className={`fixed bottom-8 right-8 z-[2000] bg-brand-black text-white px-6 py-4 rounded-xl shadow-2xl transition-all duration-500 transform ${toast ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0 pointer-events-none'}`}>
+        <span className="text-gold mr-2">✦</span> {toast}
+      </div>
     </>
   )
 }

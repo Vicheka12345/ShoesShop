@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styles from './Contact.module.css'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
@@ -19,51 +18,51 @@ export default function Contact() {
 
   return (
     <div className="page">
-      <div className={styles.layout}>
+      <div className="layout">
         {/* LEFT */}
-        <div className={styles.left}>
+        <div className="left">
           <span className="section-tag">✦ Get In Touch</span>
-          <h1 className={styles.title}>We'd Love to<br />Hear From You</h1>
-          <p className={styles.desc}>
+          <h1 className="title">We'd Love to<br />Hear From You</h1>
+          <p className="desc">
             Questions, custom orders, partnerships — our team is ready to help. Expect a reply within 24 hours.
           </p>
           {info.map(i => (
-            <div className={styles.infoItem} key={i.title}>
-              <div className={styles.infoIcon}>{i.icon}</div>
+            <div className="infoItem" key={i.title}>
+              <div className="infoIcon">{i.icon}</div>
               <div>
-                <div className={styles.infoTitle}>{i.title}</div>
-                <div className={styles.infoVal} style={{ whiteSpace: 'pre-line' }}>{i.val}</div>
+                <div className="infoTitle">{i.title}</div>
+                <div className="infoVal" style={{ whiteSpace: 'pre-line' }}>{i.val}</div>
               </div>
             </div>
           ))}
         </div>
 
         {/* RIGHT */}
-        <div className={styles.right}>
-          <h2 className={styles.formTitle}>Send a Message</h2>
+        <div className="right">
+          <h2 className="formTitle">Send a Message</h2>
           {sent && (
-            <div className={styles.success}>
+            <div className="success">
               ✅ Message sent! We'll be in touch shortly.
             </div>
           )}
           <form onSubmit={handleSubmit}>
-            <div className={styles.row}>
-              <div className={styles.group}>
-                <label className={styles.label}>First Name</label>
-                <input className={styles.input} type="text" placeholder="Your Name" required />
+            <div className="row">
+              <div className="group">
+                <label className="label">First Name</label>
+                <input className="input" type="text" placeholder="Your Name" required />
               </div>
-              <div className={styles.group}>
-                <label className={styles.label}>Last Name</label>
-                <input className={styles.input} type="text" placeholder="Your Username" required />
+              <div className="group">
+                <label className="label">Last Name</label>
+                <input className="input" type="text" placeholder="Your Username" required />
               </div>
             </div>
-            <div className={styles.group}>
-              <label className={styles.label}>Email</label>
-              <input className={styles.input} type="email" placeholder="Your Email" required />
+            <div className="group">
+              <label className="label">Email</label>
+              <input className="input" type="email" placeholder="Your Email" required />
             </div>
-            <div className={styles.group}>
-              <label className={styles.label}>Subject</label>
-              <select className={styles.input}>
+            <div className="group">
+              <label className="label">Subject</label>
+              <select className="input">
                 <option>General Enquiry</option>
                 <option>Order Support</option>
                 <option>Custom Order</option>
@@ -71,11 +70,11 @@ export default function Contact() {
                 <option>Press</option>
               </select>
             </div>
-            <div className={styles.group}>
-              <label className={styles.label}>Message</label>
-              <textarea className={styles.textarea} placeholder="Tell us how we can help..." required />
+            <div className="group">
+              <label className="label">Message</label>
+              <textarea className="textarea" placeholder="Tell us how we can help..." required />
             </div>
-            <button type="submit" className={styles.submit}>Send Message →</button>
+            <button type="submit" className="submit">Send Message →</button>
           </form>
         </div>
       </div>

@@ -1,150 +1,48 @@
-/* ===== RESET & ROOT ===== */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f6efe3;
+  --color-brand-black: #15120e;
+  --color-gold: #c99b36;
+  --color-gold-dark: #a8741e;
+  --color-warm: #e9dcc8;
+  --color-gray-soft: #6f6a61;
+  --color-light: #fbf7ef;
+  --color-accent: #8e3b2f;
+  
+  --font-roboto: "Roboto", sans-serif;
 }
 
-:root {
-  --cream: #f6efe3;
-  --black: #15120e;
-  --gold: #c99b36;
-  --gold-dark: #a8741e;
-  --warm: #e9dcc8;
-  --gray: #6f6a61;
-  --light: #fbf7ef;
-  --accent: #8e3b2f;
-  --ink-soft: #29231c;
-  --white: #ffffff;
-  --shadow: 0 22px 60px rgba(36, 26, 14, 0.12);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(201, 155, 54, 0.14), transparent 32rem),
-    linear-gradient(180deg, #fffaf1 0%, var(--light) 44%, #f2eadc 100%);
-  color: var(--black);
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Roboto', sans-serif;
-}
-
-button {
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ===== UTILITY ===== */
-.section {
-  padding: 6.5rem 6%;
-}
-
-.section-tag {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--black), #423324);
-  color: var(--white);
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 14px 30px rgba(21, 18, 14, 0.22);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--black);
-  transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(201, 155, 54, 0.26);
-}
-
-.btn-outline {
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--black);
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid rgba(21, 18, 14, 0.22);
-  border-radius: 8px;
-  transition: all 0.25s ease;
-}
-
-.btn-outline:hover {
-  background: var(--black);
-  color: var(--white);
-  transform: translateY(-2px);
-}
-
-/* ===== PAGE WRAPPER ===== */
-.page {
-  min-height: 100vh;
-  padding-top: 80px;
-}
-
-/* ===== TOAST ===== */
-.toast {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--black);
-  color: var(--white);
-  padding: 1rem 1.8rem;
-  font-size: 0.88rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  z-index: 9999;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 0.4s;
-  pointer-events: none;
-}
-
-.toast.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .section {
-    padding: 4rem 1.5rem;
+@layer base {
+  body {
+    @apply font-roboto bg-light text-brand-black antialiased;
+    background: radial-gradient(circle at top left, rgba(201, 155, 54, 0.1), transparent 40rem),
+                linear-gradient(180deg, #fffaf1 0%, #fbf7ef 44%, #f2eadc 100%);
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-roboto font-bold tracking-tight;
   }
 }
 
-@media (max-width: 600px) {
-  .section {
-    padding: 3rem 1rem;
+@layer components {
+  .section-tag {
+    @apply text-[10px] uppercase tracking-[0.2em] text-gold font-extrabold mb-2 block;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-5xl font-bold leading-tight tracking-tight;
+  }
+
+  .btn-primary {
+    @apply bg-brand-black text-white px-8 py-4 rounded-lg font-bold tracking-wider uppercase text-sm shadow-xl transition-all hover:bg-gold hover:text-brand-black hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border border-brand-black/20 bg-white/50 px-8 py-4 rounded-lg font-bold tracking-wider uppercase text-sm transition-all hover:bg-brand-black hover:text-white hover:-translate-y-0.5;
+  }
+
+  .page {
+    @apply min-h-screen pt-24;
   }
 }
